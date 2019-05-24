@@ -1,13 +1,13 @@
-import prefersReducedMotion from "./index";
+import envBlending from "./index";
 
 test("should be a string", () => {
-  expect(typeof prefersReducedMotion()).toBe("string");
+  expect(typeof envBlending()).toBe("string");
 });
 
-test("should be reduce or no-preference", () => {
-  expect(["reduce", "no-preference"].includes(prefersReducedMotion())).toBeTruthy();
+test("should be additive, subtractive or opaque", () => {
+  expect(["additive", "subtractive", "opaque"].includes(envBlending())).toBeTruthy();
 });
 
-test("should be reduce, no-preference, or unknown", () => {
-  expect(["reduce", "no-preference", "unknown"].includes(prefersReducedMotion())).toBeTruthy();
+test("should be additive, opaque, or unknown", () => {
+  expect(["additive", "subtractive", "opaque", "unknown"].includes(envBlending())).toBeTruthy();
 });
